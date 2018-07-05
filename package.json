@@ -1,0 +1,36 @@
+{
+  "name": "blogmen",
+  "version": "1.0.0",
+  "description": "Blog using MongoDB, Express, Node",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asplund86/BlogMEN.git"
+  },
+  "keywords": [
+    "Blog",
+    "Node",
+    "MongoDB",
+    "Express"
+  ],
+  "author": "Emil Asplund",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Asplund86/BlogMEN/issues"
+  },
+  "homepage": "https://github.com/Asplund86/BlogMEN#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11",
+    "mongoose": "^5.2.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "nodemon": "^1.17.5"
+  }
+}
