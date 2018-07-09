@@ -4,7 +4,10 @@
   "description": "Blog using MongoDB, Express, Node",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run start:dev",
+    "start:dev": "nodmeon server.js",
+    "start:prod": "cross-env NODE_ENV=production node server.js"
   },
   "repository": {
     "type": "git",
