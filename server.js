@@ -63,3 +63,28 @@ app.use((err, req, res, next) => {
                 error: err.message
         });
 });
+
+
+/*
+ * ========================================= 
+ * Now listen for request
+ * + function using browser sync.
+ * ========================================= 
+ */
+
+app.listen(3000, listening);
+
+
+function listening() {
+        console.log(`Demo server available on http://localhost:3000`);
+        if (!isProduction) {
+                browserSync({
+                        files: ['**/*'],
+                        online: false,
+                        open: false,
+                        port: 3000 + 1,
+                        proxy: 'localhost:' + 3000,
+                        ui: false
+                });
+        }
+}
