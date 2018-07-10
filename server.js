@@ -23,21 +23,43 @@ app.use(express.static(path.join(__dirname, '/public'))); // * == Setting up pub
  * ========================================= 
  */
 
- app.engine('hbs', hbs({
-         extname: 'hbs',
-         defaultLayout: 'layout',
-         layoutsDir: __dirname + '/views/layouts'
- }));
- app.set('views', path.join(__dirname, 'views'));
- app.set('view engine', 'hbs');
+app.engine('hbs', hbs({
+        extname: 'hbs',
+        defaultLayout: 'layout',
+        layoutsDir: __dirname + '/views/layouts'
+}));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 
- /*
+/*
  * ========================================= 
  * Connect to MongoDB
  * ========================================= 
  */
 
- mongoose.connect('mongodb://localhost/BlogMEN'); // ! == Change the adress when deploying ==
- mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/BlogMEN'); // ! == Change the adress when deploying ==
+mongoose.Promise = global.Promise;
 
- 
+/*
+ * ========================================= 
+ * Setup MIDDLEWARE
+ * ========================================= 
+ */
+
+// * == Body - Parser ==
+
+app.use(bodyParser.urlencoded({
+        extended: true
+}));
+
+// * == Routes ==
+
+app.use('/admin', require('./routes/admin'));
+
+// * == Error Handling ==
+
+app.use((err, req, res, next) => {
+        res.status(422).send({
+                error: err.message
+        });
+});
