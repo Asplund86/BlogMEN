@@ -7,22 +7,22 @@ const Schema = mongoose.Schema;
  * ========================================= 
  */
 
- const blogPostSchema = new Schema({
-     title: {
-         type: String,
-         required: [true, 'Title is required']
-     },
-     content: {
-         type: String,
-         required: [true, 'Content is required']
-     },
+const blogPostSchema = new Schema({
+    title: {
+        type: String,
+        required: [true, 'Title is required']
+    },
+    content: {
+        type: String,
+        required: [true, 'Content is required']
+    },
     createdAt: {
-         type: Date,
-         default: Date.now
-     }
- });
+        type: Date,
+        default: Date.now
+    }
+});
 
 
- const blogPost = mongoose.model('blogPost', blogPostSchema);
+const blogPost = mongoose.model('blogPost', blogPostSchema);
 
- module.exports = blogPost;
+module.exports = blogPost;
