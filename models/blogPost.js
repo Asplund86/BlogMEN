@@ -21,3 +21,8 @@ const Schema = mongoose.Schema;
          default: Date.now
      }
  });
+
+
+ const blogPost = mongoose.model('blogPost', blogPostSchema);
+
+ module.exports = blogPost;
